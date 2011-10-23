@@ -152,7 +152,7 @@
     @param {Object} target The circle 
     @returns {Boolean} true if the line intersects the circle, false otherwise
     ###
-    rayCircle: (source, direction, target, length) ->
+    rayCircle: (source, direction, target, length=null) ->
       radius = target.radius()
       target = target.position()
 
