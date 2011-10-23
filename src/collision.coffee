@@ -152,7 +152,7 @@
     @param {Object} target The circle 
     @returns {Boolean} true if the line intersects the circle, false otherwise
     ###
-    rayCircle: (source, direction, target) ->
+    rayCircle: (source, direction, target, length) ->
       radius = target.radius()
       target = target.position()
 
@@ -162,6 +162,8 @@
 
       if projectionLength < 0
         return false # object is behind
+      if length? and projectionLength > length
+        return false # segment is too short
 
       projection = direction.scale(projectionLength)
 
